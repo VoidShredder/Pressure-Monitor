@@ -84,7 +84,7 @@ void loop() {
   state_changed = false;
  }
  //If there has been no recorded activity since the last minute, we would like to send information about the pin, just to let the people know that the Arduino isn't broken.
- else if ((abs(now() - last_check)) > 10){
+ else if ((abs(now() - last_check)) > 3){
   //We want to make sure the trigger didn't malfunction. This is a cautionary step. I should probably rewrite this later on to be extra careful.
   pm.notVacuum = digitalRead(READING_INPUT);
   pm.timestamp = millis();
