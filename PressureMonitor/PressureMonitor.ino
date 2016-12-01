@@ -72,8 +72,7 @@ void setup() {
 
 void loop() {
  //If there is a delay here, please remove it. I may have glossed over it. FYI this code is detecting a signal that is on the order of 1 milliseconds. 
- delay(100);
- 
+
  //In essence, if the interrupt has been triggered and we haven't sent this information over Ethernet, do so.
  if (state_changed){
   pm.timestamp = millis();
@@ -84,7 +83,7 @@ void loop() {
   state_changed = false;
  }
  //If there has been no recorded activity since the last minute, we would like to send information about the pin, just to let the people know that the Arduino isn't broken.
- else if ((abs(now() - last_check)) > 10){
+ else if ((abs(now() - last_check)) > 3){
   //We want to make sure the trigger didn't malfunction. This is a cautionary step. I should probably rewrite this later on to be extra careful.
   pm.notVacuum = digitalRead(READING_INPUT);
   pm.timestamp = millis();
