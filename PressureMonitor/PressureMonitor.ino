@@ -72,8 +72,7 @@ void setup() {
 
 void loop() {
  //If there is a delay here, please remove it. I may have glossed over it. FYI this code is detecting a signal that is on the order of 1 milliseconds. 
- delay(100);
- 
+
  //In essence, if the interrupt has been triggered and we haven't sent this information over Ethernet, do so.
  if (state_changed){
   pm.timestamp = millis();

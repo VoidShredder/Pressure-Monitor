@@ -13,7 +13,7 @@ sock.bind((UDP_IP, UDP_PORT))
 print('Test print')
 datacount = 0;
 l = [];
-maxDataCount = 100;
+maxDataCount = 1000;
 while datacount < maxDataCount:
 	data, addr = sock.recvfrom(1024)
 	packet = (struct.unpack('=?Lf?',data))
